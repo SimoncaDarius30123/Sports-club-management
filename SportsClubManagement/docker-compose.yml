@@ -1,0 +1,22 @@
+version: '3.9'
+services:
+  db:
+    image: postgres:latest
+    container_name: postgres_sport_management
+    restart: always
+    environment:
+      POSTGRES_DB: sport_management
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: Darius300!
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - sport_network
+
+volumes:
+  postgres_data:
+
+networks:
+  sport_network:
