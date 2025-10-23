@@ -4,4 +4,5 @@ import com.backend.SportsClubManagement.Entity.Sport;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface SportRepository extends JpaRepository<Sport,Long> {
+    Sport findByName(String name);
 }

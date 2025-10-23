@@ -4,4 +4,5 @@ import com.backend.SportsClubManagement.Entity.Team;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface TeamRepository extends JpaRepository<Team, Integer> {
+    Team findByNameAndSportId(String name, Long sport_id);
 }

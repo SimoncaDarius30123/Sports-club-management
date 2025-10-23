@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "team")
+@Table(name = "team", uniqueConstraints = {@UniqueConstraint(columnNames = {"name", "sport_id"})})
 @Data
 public class Team {
     @Id
@@ -12,7 +12,7 @@ public class Team {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "name",nullable = false,unique = true)
+    @Column(name = "name",nullable = false)
     private String name;
 
     @ManyToOne
@@ -20,6 +20,6 @@ public class Team {
     private Coach coach;
 
     @ManyToOne
-    @JoinColumn(name = "sport_id")
+    @JoinColumn(name = "sport_id",nullable = false)
     private Sport sport;
 }
