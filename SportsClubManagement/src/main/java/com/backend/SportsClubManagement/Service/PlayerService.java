@@ -8,6 +8,7 @@ import com.backend.SportsClubManagement.Repository.TeamRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
 
@@ -36,6 +37,10 @@ public class PlayerService {
         Team team = teamRepository.findByNameAndSportId(request.getTeamName(),request.getSportId());
         player.setTeam(team);
         return playerRepository.save(player);
+    }
+
+    public List<Player> getPlayersPerCoach(Long coachId){
+        return playerRepository.findByCoachId(coachId);
     }
 
 }

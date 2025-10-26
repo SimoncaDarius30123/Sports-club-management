@@ -30,4 +30,9 @@ public class PlayerController {
     public Player assignPlayerToTeam(@Valid @RequestBody AssignPlayerToTeamRequest request){
         return playerService.assignPlayerToTeam(request);
     }
+
+    @GetMapping("/player/get-players-per-coach")
+    public List<Player> getPlayersPerCoach(@RequestParam Long coachId){
+        return playerService.getPlayersPerCoach(coachId);
+    }
 }
