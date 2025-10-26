@@ -2,6 +2,8 @@ package com.backend.SportsClubManagement.Entity;
 
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 
 @Entity
@@ -13,10 +15,13 @@ public class Coach {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name="name")
+    @NotBlank
+    @Column(name="name",nullable = false)
     private String name;
 
-    @Column(name="email")
+    @NotBlank
+    @Email
+    @Column(name="email",unique = true,nullable = false)
     private String email;
 
 }
