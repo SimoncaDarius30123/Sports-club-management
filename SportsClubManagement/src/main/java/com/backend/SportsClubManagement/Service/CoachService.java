@@ -23,4 +23,8 @@ public class CoachService {
     public List<Coach> getCoaches(){
         return coachRepository.findAll();
     }
+
+    public List<Coach> getCoachesBySportId(Long sportId){
+        return  coachRepository.findBySportId(sportId);
+    }
 }

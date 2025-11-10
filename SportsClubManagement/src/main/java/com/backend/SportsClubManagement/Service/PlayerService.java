@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class PlayerService {
@@ -41,6 +42,10 @@ public class PlayerService {
 
     public List<Player> getPlayersPerCoach(Long coachId){
         return playerRepository.findByCoachId(coachId);
+    }
+
+    public Optional<Player> getPlayerById(Long playerId){
+        return playerRepository.findById(playerId);
     }
 
 }
