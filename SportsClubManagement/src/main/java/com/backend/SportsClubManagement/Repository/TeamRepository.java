@@ -10,6 +10,7 @@ import java.util.List;
 public interface TeamRepository extends JpaRepository<Team, Integer> {
     Team findByName(String name);
     Team findByNameAndSportId(String name, Long sport_id);
+    List <Team> findBySportId(Long sport_id);
 
     @Query(value = """
         SELECT t.name AS teamName,AVG(p.age) AS AverageAge

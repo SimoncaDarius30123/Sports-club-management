@@ -39,4 +39,8 @@ public class TeamService {
     public List<GetTeamsWIthAveragePlayerAgeRequest> getTeamsWithAveragePlayerAge(){
         return teamRepository.findTeamsWithAveragePlayerAge();
     }
+
+    public List<Team> getTeamsBySportId(Long  sportId) {
+        return  teamRepository.findBySportId(sportId);
+    }
 }
