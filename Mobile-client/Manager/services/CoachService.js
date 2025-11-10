@@ -1,6 +1,6 @@
-const API_URL = `http://192.168.1.128:8080/api/team/get-teams-with-average-player-age?sportId`;
+const API_URL = `http://192.168.1.128:8080/api/coach/get-coaches-by-sport-id?sportId`;
 
-export const getTeamsAndPlayersAverage = async (sportId) =>{
+export const getCoachesBySportId = async (sportId) =>{
     try{
         const response = await fetch(`${API_URL}=${sportId}`);
         if(!response.ok){

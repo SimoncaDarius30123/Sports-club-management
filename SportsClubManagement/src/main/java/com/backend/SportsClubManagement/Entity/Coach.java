@@ -24,4 +24,9 @@ public class Coach {
     @Column(name="email",unique = true,nullable = false)
     private String email;
 
+
+    @ManyToOne
+    @JoinColumn(name = "sport_id", nullable = false)
+    private Sport sport;
+
 }

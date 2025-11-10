@@ -37,7 +37,7 @@ export default function SportsScreen({ navigation }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             style={styles.item}
-            onPress={() => navigation.navigate('Teams', { sportId: item.id, sportName: item.name })}
+            onPress={() => navigation.navigate('Choices', { sportId: item.id, sportName: item.name })}
           >
             <Text style={styles.itemText}>{item.name}</Text>
           </TouchableOpacity>
@@ -48,7 +48,7 @@ export default function SportsScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: { marginTop:200,flex:1, padding: 20 ,width:'100%',height:"100%"},       
+  container: { marginTop:200,flex:1, padding: 20 },       
   center: { flex: 1, justifyContent: 'center', alignItems: 'center' },
   title: { fontSize: 30, fontWeight: 'bold', marginBottom: 50, textAlign: 'center' },
   item: { backgroundColor: 'black', padding: 15, borderRadius: 8, marginBottom: 20 ,  },

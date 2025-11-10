@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
@@ -34,5 +35,10 @@ public class PlayerController {
     @GetMapping("/player/get-players-per-coach")
     public List<Player> getPlayersPerCoach(@RequestParam Long coachId){
         return playerService.getPlayersPerCoach(coachId);
+    }
+
+    @GetMapping("/player/get-player-by-id")
+    public Optional<Player> getPlayerById(@RequestParam Long playerId){
+        return playerService.getPlayerById(playerId);
     }
 }

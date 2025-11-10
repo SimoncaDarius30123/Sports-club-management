@@ -33,8 +33,8 @@ public class TeamController {
     }
 
     @GetMapping("/get-teams-with-average-player-age")
-    public List<GetTeamsWIthAveragePlayerAgeRequest> getTeamsWithAveragePlayerAge() {
-        return teamService.getTeamsWithAveragePlayerAge();
+    public List<GetTeamsWIthAveragePlayerAgeRequest> getTeamsWithAveragePlayerAge(@RequestParam Long sportId) {
+        return teamService.getTeamsWithAveragePlayerAge(sportId);
     }
 
     @GetMapping("/get-teams-by-sport-id")

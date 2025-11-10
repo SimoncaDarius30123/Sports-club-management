@@ -23,4 +23,9 @@ public class CoachController {
     public List<Coach> getCoaches(){
         return coachService.getCoaches();
     }
+
+    @GetMapping("/get-coaches-by-sport-id")
+    public List<Coach> getCoachesBySportId(@RequestParam Long sportId){
+        return coachService.getCoachesBySportId(sportId);
+    }
 }

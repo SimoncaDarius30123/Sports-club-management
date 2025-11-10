@@ -16,8 +16,10 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
         SELECT t.name AS teamName,AVG(p.age) AS AverageAge
         FROM team t
         JOIN player p ON p.team_id = t.id
+        JOIN sport s ON s.id = t.sport_id
+        WHERE t.sport_id = :sportId
         GROUP BY (t.id,t.name)
         ORDER BY t.id ASC
     """,nativeQuery = true)
-    List<GetTeamsWIthAveragePlayerAgeRequest> findTeamsWithAveragePlayerAge();
+    List<GetTeamsWIthAveragePlayerAgeRequest> findTeamsWithAveragePlayerAge(Long sportId);
 }
