@@ -1,0 +1,26 @@
+package com.backend.SportsClubManagement.Service;
+
+import com.backend.SportsClubManagement.DTo.LoginRequest;
+import com.backend.SportsClubManagement.Entity.ClientAccount;
+import com.backend.SportsClubManagement.Repository.ClientAccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+@Service
+public class ClientAccountService {
+
+    @Autowired
+    private ClientAccountRepository clientAccountRepository;
+
+    public ClientAccount register(ClientAccount clientAccount) {
+        return clientAccountRepository.save(clientAccount);
+    }
+
+    public ClientAccount login(LoginRequest request) {
+        ClientAccount clientAccount = clientAccountRepository.findByEmail(request.getEmail());
+        if(clientAccount != null &&  clientAccount.getPassword().equals(request.getPassword())) {
+            return clientAccount;
+        }
+        return null;
+    }
+}
