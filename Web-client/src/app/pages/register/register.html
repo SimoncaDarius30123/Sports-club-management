@@ -1,0 +1,25 @@
+<app-background />
+<div class="container">
+    <div class="registerContainer">
+        <h1>Sign Up</h1>
+        <form class="registerForm" #f="ngForm" (ngSubmit)="register()" novalidate>
+            <div class="inputContainer">
+                <fa-icon [icon]="faUser" />
+                <input type="text" name="username" [(ngModel)]="username" placeholder="Username" required>
+            </div>
+            <div class="inputContainer">
+                <fa-icon [icon]="faMail" />
+                <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required>
+            </div>
+            <div class="inputContainer">
+                <fa-icon [icon]="faLocker" />
+                <input [type]="showPassword ? 'text' : 'password' " name="password" [(ngModel)]="password"
+                    placeholder="Password" required>
+                <fa-icon class="showPass" (click)="togglePasswordVisibility()" [icon]="faEye" />
+            </div>
+            <button type="submit" [disabled]="f.invalid">Sign Up</button>
+        </form>
+        <p class="errorMessage">{{errorMessage}}</p>
+        <a routerLink="/login"><p>You already have an account ? Log in!</p></a>
+    </div>
+</div>

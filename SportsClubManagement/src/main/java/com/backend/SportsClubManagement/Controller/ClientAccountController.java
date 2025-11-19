@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Map;
+
 @RestController
 @RequestMapping("/api/client-account")
 public class ClientAccountController {
@@ -26,9 +28,9 @@ public class ClientAccountController {
 
     @PostMapping("/login")
     public ResponseEntity<?> login(@Valid @RequestBody LoginRequest request) {
-        ClientAccount clientAccount = clientAccountService.login(request);
-        if(clientAccount != null){
-            return ResponseEntity.ok(clientAccount);
+        String token = clientAccountService.login(request);
+        if(token != null){
+            return ResponseEntity.ok(Map.of("token", token));
         }
         return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     }
