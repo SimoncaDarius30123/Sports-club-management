@@ -23,7 +23,7 @@ public class ClientAccountService {
     public String login(LoginRequest request) {
         ClientAccount clientAccount = clientAccountRepository.findByEmail(request.getEmail());
         if(clientAccount != null &&  clientAccount.getPassword().equals(request.getPassword())) {
-            return jwtService.generateToken(clientAccount.getUsername(), clientAccount.getRole());
+            return jwtService.generateToken(clientAccount.getUsername(), clientAccount.getEmail(), clientAccount.getRole());
         }
         return null;
     }

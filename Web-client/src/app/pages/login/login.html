@@ -5,7 +5,7 @@
         <form class="loginForm" #f="ngForm" (ngSubmit)="login()" novalidate>
             <div class="inputContainer">
                 <fa-icon [icon]="faUser" />
-                <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required>
+                <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required autocomplete="email">
             </div>
             <div class="inputContainer">
                 <fa-icon [icon]="faLocker" />

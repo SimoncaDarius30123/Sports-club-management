@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="logo">
+        <img src="logo.png">
+        <h1>SPORT</h1>
+    </div>
+    <div class="nav">
+        <ul>
+            <li>
+                <a routerLink="/client/home" routerLinkActive="link-active">
+                    <fa-icon [icon]="faHome" />
+                    Home
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faCoach" />
+                    Choaces
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faTeam" />
+                    Teams
+                </a>
+            </li>
+            <li>
+                <a>
+                    <fa-icon [icon]="faPlayer" />
+                    Players
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="user">
+        <div class="avatar" (click)="showMenu()">
+            <p>{{usernameAvatar}}</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="userMenu" *ngIf="showUserMenu">
+    <p><span>Username</span> : {{username}} </p>
+    <p><span>Email</span> : {{email}} </p>
+    <p class="disconnect" (click)="disconnect()">Disconnect</p>
+</div>

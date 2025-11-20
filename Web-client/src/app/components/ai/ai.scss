@@ -1,0 +1,19 @@
+.container{
+    position: absolute;
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    background-color: rgb(1, 1, 1);
+    z-index: 1;
+    top:90vh;
+    right:1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+
+    fa-icon{
+        font-size: 30px;
+        color: white;
+    }
+}

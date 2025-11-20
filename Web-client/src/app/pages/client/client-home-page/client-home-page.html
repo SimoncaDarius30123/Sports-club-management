@@ -1,0 +1,16 @@
+<div class="options">
+    <h1>Best Sport Management Platform</h1>
+    <button (click)="showSportMenu()">Choose a sport</button>
+</div>
+
+<div class="choseSportMenu" *ngIf="showChooseSportMenu">
+    <div class="exit" (click)="closeSportMenu()">X</div>
+    <div class="container">
+        <h2>Choose a sport</h2>
+        <div class="sportContainer">
+            @for (item of sports; track $index) {
+                <div class="button">{{item.name}}</div>
+            }
+        </div>
+    </div>
+</div>

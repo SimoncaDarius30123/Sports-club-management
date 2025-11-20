@@ -1,0 +1,92 @@
+.options{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('../../../../../public/background-client.png');
+    background-position: center;
+    background-size: cover;
+    position: absolute;
+    z-index: 0;
+    flex-direction: column;
+    text-align: center;
+
+    h1{
+        width: 40%;
+        font-family: 'k2d';
+        font-size: 48px;
+        margin-bottom: 50px;
+        letter-spacing: 2px;
+    }
+
+    button{
+        width: 15%;
+        height: 45px;
+        border-radius: 5px;
+        border: none;
+        background-color: rgb(62, 55, 55);
+        font-family: 'k2d';
+        font-weight: bold;
+        font-size: 1.2rem;
+        color: white;
+        cursor: pointer;
+        letter-spacing: 3px;
+
+        &:hover{
+            background-color: rgb(90, 83, 83);
+        }
+    }
+}
+
+.choseSportMenu{
+    position: absolute;
+    z-index: 2;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'k2d';
+
+    .exit{
+        position: absolute;
+        top: 17%;
+        right: 15%;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+    .container{
+        width: 60%;
+        height: auto;
+        padding: 20px;
+        background-color: rgb(199, 169, 169);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+
+        h2{
+            font-size: 2rem;
+        }
+
+        .sportContainer{
+            width: 80%;
+            height: auto;
+            padding: 20px;
+            background-color: red;
+            margin-top: 20px;
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+
+            .button{
+                margin-left: 30px;
+            }
+        }
+    }
+}

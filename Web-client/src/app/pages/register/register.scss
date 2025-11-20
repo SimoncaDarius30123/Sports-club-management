@@ -11,7 +11,7 @@
      .registerContainer {
          padding: 20px;
          width: 40%;
-         height: 70vh;
+         height: 75vh;
          background: rgba(120, 120, 120, 0.25);
          box-shadow: 0 4px 20px rgba(77, 81, 79, 0.3);
          display: flex;
@@ -110,25 +110,43 @@
              }
          }
 
-         a{
-            text-decoration: none;
+         a {
+             text-decoration: none;
 
-            
-         }
 
-         p {
-             font-family: 'k2d';
-             color: #fff;
-             margin-top: 10px;
-             &:hover {
-                color:#908888;
-            }
          }
 
          .errorMessage {
              color: #f70f02;
              margin-top: 10px;
              letter-spacing: 3px;
+
+             &:hover{
+                color: #f70f02;
+             }
          }
+
+         .succesMessage {
+             color: #00ff00;
+             margin-top: 10px;
+             letter-spacing: 3px;
+             text-align: center;
+
+             &:hover{
+                color: #00ff00;
+             }
+         }
+
+         p {
+             font-family: 'k2d';
+             color: #fff;
+             margin-top: 10px;
+
+             &:hover {
+                 color: #908888;
+             }
+         }
+
+         
      }
  }

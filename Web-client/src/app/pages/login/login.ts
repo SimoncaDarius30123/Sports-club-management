@@ -36,6 +36,7 @@ export class Login {
       next: (response) => {
         localStorage.setItem('AUTH_TOKEN', response.token);
         this.errorMessage = '';
+        window.location.reload();
       },
       error: () => {
         this.errorMessage = "Wrong credentials!";
