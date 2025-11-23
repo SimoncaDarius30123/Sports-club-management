@@ -1,12 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink, RouterLinkActive } from "@angular/router";
 import { faHome, faPeopleGroup, faUser, faUserTie } from '@fortawesome/free-solid-svg-icons';
 import { FaIconComponent } from "@fortawesome/angular-fontawesome";
 import { NgIf } from '@angular/common';
+import { DataTransferService } from '../../services/data-transfer-service';
 
 @Component({
   selector: 'app-client-navbar',
-  imports: [RouterLink, RouterLinkActive, FaIconComponent,NgIf],
+  imports: [RouterLink, RouterLinkActive, FaIconComponent, NgIf],
   templateUrl: './client-navbar.html',
   styleUrl: './client-navbar.scss',
 })
@@ -16,6 +17,9 @@ export class ClientNavbar {
   username: string = '';
   email: string = '';
   showUserMenu: boolean = false;
+  choosenSport: string = '';
+  dataService = inject(DataTransferService);
+
 
   //icons
   faHome = faHome;
@@ -35,6 +39,12 @@ export class ClientNavbar {
     this.usernameAvatar = payload.sub.slice(0, 2).toUpperCase();
     this.username = payload.sub;
     this.email = payload.email;
+
+    // ca sa vad ce sport a ales clientul
+    this.dataService.data$.subscribe(data => {
+      if (!data) this.choosenSport = '';
+      else this.choosenSport = data.name;
+    });
   }
 
   showMenu() {

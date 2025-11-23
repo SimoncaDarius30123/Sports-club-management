@@ -12,19 +12,19 @@
                 </a>
             </li>
             <li>
-                <a>
+                <a routerLink="/client/coaches" routerLinkActive="link-active">
                     <fa-icon [icon]="faCoach" />
                     Choaces
                 </a>
             </li>
             <li>
-                <a>
+                <a routerLink="/client/teams" routerLinkActive="link-active">
                     <fa-icon [icon]="faTeam" />
                     Teams
                 </a>
             </li>
             <li>
-                <a>
+                <a routerLink="/client/players" routerLinkActive="link-active">
                     <fa-icon [icon]="faPlayer" />
                     Players
                 </a>
@@ -42,5 +42,6 @@
 <div class="userMenu" *ngIf="showUserMenu">
     <p><span>Username</span> : {{username}} </p>
     <p><span>Email</span> : {{email}} </p>
+    <p><span>Chosen sport</span> : {{choosenSport}} </p>
     <p class="disconnect" (click)="disconnect()">Disconnect</p>
 </div>

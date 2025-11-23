@@ -58,13 +58,17 @@
         color: white;
         cursor: pointer;
         font-weight: bold;
+
+        &:hover{
+            color: rgb(200, 200, 200);
+        }
     }
 
     .container{
         width: 60%;
         height: auto;
         padding: 20px;
-        background-color: rgb(199, 169, 169);
+        background-color: #fff;
         border-radius: 10px;
         display: flex;
         align-items: center;
@@ -79,13 +83,22 @@
             width: 80%;
             height: auto;
             padding: 20px;
-            background-color: red;
             margin-top: 20px;
             display: grid;
             grid-template-columns: repeat(4,1fr);
 
             .button{
                 margin-left: 30px;
+                border: 1px solid black;
+                text-align: center;
+                padding: 10px;
+                cursor: pointer;
+                border-radius: 10px;
+                font-weight: bold;
+
+                &:hover{
+                    background-color: rgb(200, 200, 200);
+                }
             }
         }
     }

@@ -41,4 +41,9 @@ public class TeamController {
     public List<Team> getTeamsBySportId(@RequestParam Long sportId) {
         return teamService.getTeamsBySportId(sportId);
     }
+
+    @GetMapping("/get-team-by-coach-id")
+    public Team getTeamByCoachId(@RequestParam Long coachId){
+        return  teamService.getTeamByCoachId(coachId);
+    }
 }

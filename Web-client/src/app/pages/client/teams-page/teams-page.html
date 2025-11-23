@@ -1,0 +1,18 @@
+<div class="container">
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>Coach</th>
+            <th>Average Players age</th>
+            <th>Sport</th>
+        </tr>
+        @for(item of teams;track item.teamName){
+        <tr>
+            <td>{{item.teamName}}</td>
+            <td>{{teamCoaches[item.coachId]}}</td>
+            <td>{{item.averageAge}}</td>
+            <td>{{sportName}}</td>
+        </tr>
+        }
+    </table>
+</div>

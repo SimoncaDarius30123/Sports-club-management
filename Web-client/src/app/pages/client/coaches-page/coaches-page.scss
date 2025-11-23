@@ -1,0 +1,29 @@
+.container {
+    position: absolute;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+
+    table {
+        border-collapse: collapse;
+        width: 80%;
+        th,
+        td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 10px;
+            background-color: #f6fbf9;
+            color: black;
+            font-family: 'k2d';
+            font-size: 20px;
+
+            ul{
+                list-style: none;
+                padding: 5px;
+            }
+        }
+    }
+}

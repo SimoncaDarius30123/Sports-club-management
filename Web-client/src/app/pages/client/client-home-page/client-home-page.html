@@ -9,7 +9,7 @@
         <h2>Choose a sport</h2>
         <div class="sportContainer">
             @for (item of sports; track $index) {
-                <div class="button">{{item.name}}</div>
+                <div class="button" (click)="chooseSport(item)">{{item.name}}</div>
             }
         </div>
     </div>

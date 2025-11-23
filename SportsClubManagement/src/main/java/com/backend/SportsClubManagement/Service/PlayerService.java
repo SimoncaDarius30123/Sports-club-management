@@ -48,4 +48,8 @@ public class PlayerService {
         return playerRepository.findById(playerId);
     }
 
+    public List<Player> getPlayersBySportId(Long sportId){
+        return playerRepository.findBySportId(sportId);
+    }
+
 }

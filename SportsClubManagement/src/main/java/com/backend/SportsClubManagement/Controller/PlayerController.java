@@ -41,4 +41,9 @@ public class PlayerController {
     public Optional<Player> getPlayerById(@RequestParam Long playerId){
         return playerService.getPlayerById(playerId);
     }
+
+    @GetMapping("/player/get-players-by-sport-id")
+    public List<Player> getPlayersByTeamId(@RequestParam Long sportId){
+        return playerService.getPlayersBySportId(sportId);
+    }
 }
