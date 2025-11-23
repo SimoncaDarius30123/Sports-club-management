@@ -1,23 +1,23 @@
 <div class="container">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Position</th>
-            <th>Age</th>
-            <th>Team</th>
-            <th>Sport</th>
-        </tr>
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Age</th>
+                <th>Team</th>
+                <th>Sport</th>
+            </tr>
 
-        @for(item of players;track item.name){
+            @for(item of players;track item.name){
             <tr>
                 <td>{{item.name}}</td>
                 <td>{{item.position}}</td>
                 <td>{{item.age}}</td>
-                <td>{{item.team.name}}</td>
+                <td>{{ item?.team?.name || '' }}</td>
                 <td>{{sportName}}</td>
             </tr>
-        }
-        
-        
-    </table>
+            }
+        </table>
+    </div>
 </div>

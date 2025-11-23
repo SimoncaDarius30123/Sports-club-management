@@ -1,26 +1,28 @@
 <div class="container">
-    <table>
-        <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Players Trained</th>
-            <th>Team Trained</th>
-            <th>Sport</th>
-        </tr>
-        @for(item of coaches;track item.name) {
-        <tr>
-            <td>{{item.name}}</td>
-            <td>{{item.email}}</td>
-            <td>
-                <ul>
-                    @for(player of playersTrained[item.id];track player.name){
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Players Trained</th>
+                <th>Team Trained</th>
+                <th>Sport</th>
+            </tr>
+            @for(item of coaches;track item.name) {
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>
+                    <ul>
+                        @for(player of playersTrained[item.id];track player.name){
                         <li>{{player.name}}</li>
-                    }
-                </ul>
-            </td>
-            <td>{{teamsByCoach[item.id]?.name || ''}}</td>
-            <td>{{sportName}}</td>
-        </tr>
-        }
-    </table>
+                        }
+                    </ul>
+                </td>
+                <td>{{teamsByCoach[item.id]?.name || ''}}</td>
+                <td>{{sportName}}</td>
+            </tr>
+            }
+        </table>
+    </div>
 </div>
