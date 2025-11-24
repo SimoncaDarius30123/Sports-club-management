@@ -20,4 +20,5 @@ public interface PlayerRepository extends JpaRepository<Player,Long> {
     List<Player> findByCoachId(@Param("coachId") Long coachId);
 
     List<Player> findBySportId(@Param("sportId") Long sportId);
+
 }
