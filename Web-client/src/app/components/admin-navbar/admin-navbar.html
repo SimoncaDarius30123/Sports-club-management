@@ -1,0 +1,49 @@
+<div class="containerUp">
+    <div class="logo">
+        <h1>Master Admin</h1>
+    </div>
+    <div class="avatar">
+        <h1 (click)="disconnect()">Disconnect</h1>
+    </div>
+</div>
+
+<div class="containerLeft">
+    <ul>
+        <a routerLink="/admin/dashboard" routerLinkActive="link-active">
+            <div class="rest">
+                <fa-icon [icon]="faFashboard"></fa-icon>
+                <li>Dashboard</li>
+            </div>
+        </a>
+        <a>
+            <div class="rest">
+                <fa-icon [icon]="faCoach"></fa-icon>
+                <li>Coaches</li>
+            </div>
+        </a>
+        <a>
+            <div class="rest">
+                <fa-icon [icon]="faPlayer"></fa-icon>
+                <li>Players</li>
+            </div>
+        </a>
+        <a>
+            <div class="rest">
+                <fa-icon [icon]="faTeams"></fa-icon>
+                <li>Teams</li>
+            </div>
+        </a>
+        <a>
+            <div class="rest">
+                <fa-icon [icon]="faSport"></fa-icon>
+                <li>Sports</li>
+            </div>
+        </a>
+        <a>
+            <div class="rest">
+                <fa-icon [icon]="faUsers"></fa-icon>
+                <li>Users</li>
+            </div>
+        </a>
+    </ul>
+</div>

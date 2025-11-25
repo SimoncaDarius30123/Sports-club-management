@@ -16,7 +16,14 @@ export const routes: Routes = [
     {
         path: "admin",
         loadComponent: () => import('./pages/admin/admin').then(c => c.Admin),
-        canActivate: [authGuard]
+        canActivate: [authGuard],
+        children:[
+            {path:'' , pathMatch:"full",redirectTo:"dashboard"},
+            {
+                path:"dashboard",
+                loadComponent: ()=> import('./pages/admin/dashboard/dashboard').then(c => c.Dashboard)
+            }
+        ]
     },
     {
         path: "client",

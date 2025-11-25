@@ -7,6 +7,8 @@ import com.backend.SportsClubManagement.Repository.ClientAccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ClientAccountService {
 
@@ -26,5 +28,9 @@ public class ClientAccountService {
             return jwtService.generateToken(clientAccount.getUsername(), clientAccount.getEmail(), clientAccount.getRole());
         }
         return null;
+    }
+
+    public List<ClientAccount> getClientAccounts() {
+        return this.clientAccountRepository.findAll();
     }
 }
