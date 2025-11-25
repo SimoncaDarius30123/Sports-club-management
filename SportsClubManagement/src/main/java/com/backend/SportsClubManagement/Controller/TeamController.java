@@ -12,6 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/team")
+@CrossOrigin
 public class TeamController {
 
     @Autowired
@@ -45,5 +46,10 @@ public class TeamController {
     @GetMapping("/get-team-by-coach-id")
     public Team getTeamByCoachId(@RequestParam Long coachId){
         return  teamService.getTeamByCoachId(coachId);
+    }
+
+    @GetMapping("/get-teams-with-no-coach")
+    public List<Team> getTeamsWithNoCoach(@RequestParam Long sportId) {
+        return teamService.getTeamsWithNoCoach(sportId);
     }
 }

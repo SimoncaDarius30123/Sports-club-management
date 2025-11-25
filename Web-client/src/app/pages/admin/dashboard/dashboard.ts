@@ -7,10 +7,11 @@ import { Team } from '../../../interfaces/team.interface';
 import { Coach } from '../../../interfaces/coach.interface';
 import { Sport } from '../../../interfaces/sport.interface';
 import { ClientAccount } from '../../../interfaces/clientAccount.interface';
+import { RouterLink } from "@angular/router";
 
 @Component({
   selector: 'app-dashboard',
-  imports: [FontAwesomeModule],
+  imports: [FontAwesomeModule, RouterLink],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })

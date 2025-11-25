@@ -1,0 +1,121 @@
+.container {
+    position: absolute;
+    width: 77%;
+    height: 92vh;
+    margin-top: 8vh;
+    margin-left: 23%;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+
+    .upContainer {
+        display: flex;
+        flex-direction: row;
+
+        h1 {
+            letter-spacing: 3px;
+            font-family: 'k2d';
+        }
+
+        button {
+            background-color: rgb(25, 208, 55);
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 5%;
+            margin-left: 5px;
+            color: #fff;
+            font-family: 'k2d';
+            letter-spacing: 1px;
+
+            &:hover {
+                background-color: rgb(46, 113, 28);
+            }
+        }
+    }
+
+    .table-wrapper {
+        margin-top: 10px;
+        width: 95%;
+        display: flex;
+        align-self: center;
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #b5b0b0;
+            padding: 10px;
+            background: #f6fbf9;
+            color: black;
+            font-family: 'k2d';
+            font-size: 20px;
+            text-align: left;
+
+            ul {
+                list-style: none;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+
+                li {
+                    .deleteButton {
+                        background-color: red;
+                        border: none;
+                        padding: 10px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 95%;
+                        color: #fff;
+                        font-family: 'k2d';
+                        letter-spacing: 1px;
+
+                        &:hover {
+                            background-color: rgb(127, 32, 32);
+                        }
+                    }
+
+                    .updateButton {
+                        background-color: blue;
+                        border: none;
+                        padding: 10px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 95%;
+                        color: #fff;
+                        font-family: 'k2d';
+                        letter-spacing: 1px;
+
+                        &:hover {
+                            background-color: rgb(20, 36, 79);
+                        }
+                    }
+
+                    .assignToTeamButton {
+                        margin-top: 5px;
+                        background-color: rgb(187, 173, 21);
+                        border: none;
+                        padding: 10px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 196%;
+                        color: #fff;
+                        font-family: 'k2d';
+                        letter-spacing: 1px;
+
+                        &:hover {
+                            background-color: rgb(116, 120, 37);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

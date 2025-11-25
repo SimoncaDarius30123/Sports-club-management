@@ -12,6 +12,7 @@ public interface TeamRepository extends JpaRepository<Team, Integer> {
     Team findByNameAndSportId(String name, Long sport_id);
     List <Team> findBySportId(Long sport_id);
     Team findByCoachId(Long coach_id);
+    List<Team> findByCoachNullAndSportId(Long sport_id);
 
     @Query(value = """
         SELECT t.name AS teamName,AVG(p.age) AS AverageAge , t.coach_id as coachId , t.id as teamId

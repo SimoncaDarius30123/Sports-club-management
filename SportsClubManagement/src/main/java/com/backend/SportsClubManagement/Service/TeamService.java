@@ -47,4 +47,8 @@ public class TeamService {
     public Team getTeamByCoachId(Long coachId) {
         return teamRepository.findByCoachId(coachId);
     }
+
+    public List<Team> getTeamsWithNoCoach(Long sportId) {
+        return teamRepository.findByCoachNullAndSportId(sportId);
+    }
 }

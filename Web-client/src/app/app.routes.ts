@@ -17,11 +17,31 @@ export const routes: Routes = [
         path: "admin",
         loadComponent: () => import('./pages/admin/admin').then(c => c.Admin),
         canActivate: [authGuard],
-        children:[
-            {path:'' , pathMatch:"full",redirectTo:"dashboard"},
+        children: [
+            { path: '', pathMatch: "full", redirectTo: "dashboard" },
             {
-                path:"dashboard",
-                loadComponent: ()=> import('./pages/admin/dashboard/dashboard').then(c => c.Dashboard)
+                path: "dashboard",
+                loadComponent: () => import('./pages/admin/dashboard/dashboard').then(c => c.Dashboard)
+            },
+            {
+                path: "coaches",
+                loadComponent: () => import('./pages/admin/admin-coaches/admin-coaches').then(c => c.AdminCoaches)
+            },
+            {
+                path: "players",
+                loadComponent: () => import('./pages/admin/admin-players/admin-players').then(c => c.AdminPlayers)
+            },
+            {
+                path: "teams",
+                loadComponent: () => import('./pages/admin/admin-teams/admin-teams').then(c => c.AdminTeams)
+            },
+            {
+                path: "sports",
+                loadComponent: () => import('./pages/admin/admin-sports/admin-sports').then(c => c.AdminSports)
+            },
+            {
+                path: "users",
+                loadComponent: () => import('./pages/admin/admin-users/admin-users').then(c => c.AdminUsers)
             }
         ]
     },

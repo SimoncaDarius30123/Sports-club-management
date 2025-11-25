@@ -1,0 +1,108 @@
+<div class="container">
+    <div class="upContainer">
+        <h1>Coaches</h1>
+        <button (click)="openOrCloseAddCoachMenu()">+</button>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Team Trained</th>
+                <th>Sport</th>
+                <th>Options</th>
+            </tr>
+            @for(item of coaches;track item.name){
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{item.email}}</td>
+                <td>{{teamsByCoach[item.id]?.name}}</td>
+                <td>{{item.sport.name}}</td>
+                <td>
+                    <ul>
+                        <li><button class="deleteButton" (click)="deleteCoach(item.id)">Delete</button></li>
+                        <li><button class="updateButton" (click)="openUpdateMenu(item)">Update</button></li>
+                        <li><button class="assignToTeamButton"
+                                (click)="openAssignToTeamMenu(item.sport.id,item.name,item.id)">AssignToTeam</button>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="addCoachMenu" *ngIf="showAddCoachMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Add Coach Menu</h1>
+            <h2 (click)="openOrCloseAddCoachMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm" (ngSubmit)="addCoach(coachName,coachEmail,coachSport)">
+                <input type="text" name="coachName" id="coachName" [(ngModel)]="coachName" required
+                    placeholder="Full-name" autocomplete="given-name">
+                <input type="email" name="coachEmail" id="coachEmail" [(ngModel)]="coachEmail" required
+                    placeholder="Email" autocomplete="email">
+                <div class="sports">
+                    @for(item of sports;track item.name){
+                    <div class="element" [attr.id]="item.id" [ngClass]="{'selected':item.id === sportId}"
+                        (click)="selectSport(item)">
+                        <p>{{item.name}}</p>
+                    </div>
+                    }
+                </div>
+                <button [disabled]="f.invalid">Add Coach</button>
+
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="assignToTeamMenu" *ngIf="showAssignToTeamMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Assign Coach To a Team Menu</h1>
+            <h2 (click)="closeAssignToTeamMenu()">x</h2>
+        </div>
+        <div class="rest">
+            @for(team of teamsWithNoCoach;track team.name){
+            <div class="element" (click)="assignCoachToTeam(team.name,coachName)">
+                <p>{{team.name}}</p>
+            </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="updateMenu" *ngIf="showUpdateMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Update Coach Menu</h1>
+            <h2 (click)="closeUpdateMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm" (ngSubmit)="updateCoach(coachNewName,coachNewEmail)">
+                <input type="text" name="coachNewName" id="coachNewName" [(ngModel)]="coachNewName" 
+                    placeholder="Full-name" autocomplete="given-name">
+                <input type="email" name="coachNewEmail" id="coachNewEmail" [(ngModel)]="coachNewEmail" 
+                    placeholder="Email" autocomplete="email">
+                <div class="sports">
+                    @for(item of sports;track item.name){
+                    <div class="element" [attr.id]="item.id" [ngClass]="{'selected':item.id === sportId}"
+                        (click)="selectSport(item)">
+                        <p>{{item.name}}</p>
+                    </div>
+                    }
+                </div>
+                <button [disabled]="f.invalid">Update Coach</button>
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,6 @@
 package com.backend.SportsClubManagement.Controller;
 
+import com.backend.SportsClubManagement.DTo.UpdateCoachRequest;
 import com.backend.SportsClubManagement.Entity.Coach;
 import com.backend.SportsClubManagement.Service.CoachService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,6 +10,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/coach")
+@CrossOrigin
 public class CoachController {
 
     @Autowired
@@ -27,5 +29,15 @@ public class CoachController {
     @GetMapping("/get-coaches-by-sport-id")
     public List<Coach> getCoachesBySportId(@RequestParam Long sportId){
         return coachService.getCoachesBySportId(sportId);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteCoach(@RequestParam Long id){
+        coachService.deleteCoach(id);
+    }
+
+    @PutMapping("/update")
+    public void updateCoach(@RequestBody UpdateCoachRequest request){
+        coachService.updateCoach(request);
     }
 }
