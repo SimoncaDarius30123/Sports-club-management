@@ -6,6 +6,7 @@ import { Team } from '../interfaces/team.interface';
 import { Coach } from '../interfaces/coach.interface';
 import { Sport } from '../interfaces/sport.interface';
 import { ClientAccount } from '../interfaces/clientAccount.interface';
+import { PlayerAdmin } from '../interfaces/playerAdmin.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -67,4 +68,10 @@ export class AdminService {
     const url= `http://localhost:8080/api/coach/update`;
     return this.http.put<any>(url,{coach,newName,newEmail,newSport});
   }
+
+  getAllPlayersForAdmin(): Observable<PlayerAdmin[]> {
+    const url = `http://localhost:8080/api/player/get-all`;
+    return this.http.get<PlayerAdmin[]>(url);
+  }
+
 }

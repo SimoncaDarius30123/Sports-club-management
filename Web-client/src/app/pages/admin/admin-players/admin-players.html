@@ -8,11 +8,26 @@
         <table>
             <tr>
                 <th>Name</th>
-                <th>Email</th>
-                <th>Team Trained</th>
+                <th>Position</th>
+                <th>Age</th>
+                <th>Team</th>
                 <th>Sport</th>
                 <th>Options</th>
             </tr>
+            @for(item of players;track item.name){
+                <tr>
+                    <td>{{item?.name}}</td>
+                    <td>{{item?.position}}</td>
+                    <td>{{item?.age}}</td>
+                    <td>{{item?.team?.name}}</td>
+                    <td>{{item?.sport?.name}}</td>
+                    <td><ul>
+                        <li><button class="deleteButton">Delete</button></li>
+                        <li><button class="updateButton">Update</button></li>
+                        <li><button class="assignToTeamButton">AssignToTeam</button></li>
+                    </ul></td>
+                </tr>
+            }
         </table>
     </div>
 </div>

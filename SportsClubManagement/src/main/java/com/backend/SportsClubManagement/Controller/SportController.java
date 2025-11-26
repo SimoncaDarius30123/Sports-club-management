@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/sport")
@@ -30,5 +31,7 @@ public class SportController {
     public Sport getSportByName(@RequestParam String sportName) {
         return sportService.getSportByName(sportName);
     }
+
+
 
 }
