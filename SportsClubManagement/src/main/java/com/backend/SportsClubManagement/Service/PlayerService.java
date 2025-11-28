@@ -1,6 +1,7 @@
 package com.backend.SportsClubManagement.Service;
 
 import com.backend.SportsClubManagement.DTo.AssignPlayerToTeamRequest;
+import com.backend.SportsClubManagement.DTo.UpdatePlayerRequest;
 import com.backend.SportsClubManagement.Entity.Player;
 import com.backend.SportsClubManagement.Entity.Team;
 import com.backend.SportsClubManagement.Repository.PlayerRepository;
@@ -28,28 +29,49 @@ public class PlayerService {
         return playerRepository.save(player);
     }
 
-    public List<Player> listPlayers(){
+    public List<Player> listPlayers() {
         return playerRepository.findAll();
     }
 
     @Transactional
-    public Player assignPlayerToTeam(AssignPlayerToTeamRequest request){
+    public Player assignPlayerToTeam(AssignPlayerToTeamRequest request) {
         Player player = playerRepository.findByName(request.getPlayerName());
-        Team team = teamRepository.findByNameAndSportId(request.getTeamName(),request.getSportId());
+        Team team = teamRepository.findByNameAndSportId(request.getTeamName(), request.getSportId());
         player.setTeam(team);
         return playerRepository.save(player);
     }
 
-    public List<Player> getPlayersPerCoach(Long coachId){
+    public List<Player> getPlayersPerCoach(Long coachId) {
         return playerRepository.findByCoachId(coachId);
     }
 
-    public Optional<Player> getPlayerById(Long playerId){
+    public Optional<Player> getPlayerById(Long playerId) {
         return playerRepository.findById(playerId);
     }
 
-    public List<Player> getPlayersBySportId(Long sportId){
+    public List<Player> getPlayersBySportId(Long sportId) {
         return playerRepository.findBySportId(sportId);
+    }
+
+    public void deletePlayerById(Long playerId) {
+        playerRepository.deleteById(playerId);
+    }
+
+    public void updatePlayer(UpdatePlayerRequest request) {
+        Player player = request.getPlayer();
+        if (request.getNewName() != null && !request.getNewName().isEmpty()) {
+            player.setName(request.getNewName());
+        }
+        if (request.getNewPosition() != null && !request.getNewPosition().isEmpty()) {
+            player.setPosition(request.getNewPosition());
+        }
+
+        player.setAge(request.getNewAge());
+
+        if (request.getSport() != null) {
+            player.setSport(request.getSport());
+        }
+        playerRepository.save(player);
     }
 
 }

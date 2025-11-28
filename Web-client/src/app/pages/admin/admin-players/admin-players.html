@@ -1,7 +1,7 @@
 <div class="container">
     <div class="upContainer">
         <h1>Players</h1>
-        <button>+</button>
+        <button (click)="openOrCloseAddPlayerMenu()">+</button>
     </div>
 
     <div class="table-wrapper">
@@ -15,19 +15,98 @@
                 <th>Options</th>
             </tr>
             @for(item of players;track item.name){
-                <tr>
-                    <td>{{item?.name}}</td>
-                    <td>{{item?.position}}</td>
-                    <td>{{item?.age}}</td>
-                    <td>{{item?.team?.name}}</td>
-                    <td>{{item?.sport?.name}}</td>
-                    <td><ul>
-                        <li><button class="deleteButton">Delete</button></li>
-                        <li><button class="updateButton">Update</button></li>
-                        <li><button class="assignToTeamButton">AssignToTeam</button></li>
-                    </ul></td>
-                </tr>
+            <tr>
+                <td>{{item?.name}}</td>
+                <td>{{item?.position}}</td>
+                <td>{{item?.age}}</td>
+                <td>{{item?.team?.name}}</td>
+                <td>{{item?.sport?.name}}</td>
+                <td>
+                    <ul>
+                        <li><button class="deleteButton" (click)="deletePlayer(item.id)">Delete</button></li>
+                        <li><button class="updateButton" (click)="openUpdateMenu(item)">Update</button></li>
+                        <li><button class="assignToTeamButton" (click)="openAssignToTeamMenu(item)">AssignToTeam</button></li>
+                    </ul>
+                </td>
+            </tr>
             }
         </table>
+    </div>
+</div>
+
+<div class="addPlayerMenu" *ngIf="showAddPlayerMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Add Player Menu</h1>
+            <h2 (click)="openOrCloseAddPlayerMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm" (ngSubmit)="addPlayer(playerName,playerPosition,playerAge)">
+                <input type="text" name="playerName" id="playerName" [(ngModel)]="playerName" placeholder="Full-name"
+                    autocomplete="given-name">
+                <input type="text" name="playerPosition" id="playerPosition" [(ngModel)]="playerPosition"
+                    placeholder="Position" autocomplete="">
+                <input type="number" onkeydown="return false" min="10" max="45" name="playerAge" id="playerAge"
+                    [(ngModel)]="playerAge" placeholder="Age">
+                <div class="sports">
+                    @for(item of sports;track item.name){
+                    <div class="element" [attr.id]="item.id" [ngClass]="{'selected':item.id === sportId}"
+                        (click)="selectSport(item)">
+                        <p>{{item.name}}</p>
+                    </div>
+                    }
+                </div>
+                <button [disabled]="f.invalid">Add Player</button>
+
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="updateMenu" *ngIf="showUpdateMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Update Player Menu</h1>
+            <h2 (click)="closeUpdateMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm" (ngSubmit)="updatePlayer(playerNewName,playerNewPosition,playerNewAge)">
+                <input type="text" name="playerNewName" id="playerNewName" placeholder="Full-name"
+                    [(ngModel)]="playerNewName" autocomplete="given-name">
+                <input type="text" name="playerNewPosition" id="playerNewPosition" placeholder="Position"
+                    [(ngModel)]="playerNewPosition" autocomplete="given-name">
+                <input type="number" onkeydown="return false" min="10" max="45" name="playerNewAge" id="playerNewAge"
+                    [(ngModel)]="playerNewAge" placeholder="Age">
+                <div class="sports">
+                    @for(item of sports;track item.name){
+                    <div class="element" [attr.id]="item.id" [ngClass]="{'selected':item.id === sportId}"
+                        (click)="selectSport(item)">
+                        <p>{{item.name}}</p>
+                    </div>
+                    }
+                </div>
+                <button [disabled]="f.invalid">Update Player</button>
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="assignToTeamMenu" *ngIf="showAssignToTeamMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Assign Coach To a Team Menu</h1>
+            <h2 (click)="closeAssignToTeamMenu()">x</h2>
+        </div>
+        <div class="rest">
+            @for(team of teams;track team.name){
+            <div class="element" (click)="assignPlayerToTeam(team.name)">
+                <p>{{team.name}}</p>
+            </div>
+            }
+        </div>
     </div>
 </div>

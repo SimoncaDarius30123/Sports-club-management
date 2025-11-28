@@ -1,6 +1,7 @@
 package com.backend.SportsClubManagement.Controller;
 
 import com.backend.SportsClubManagement.DTo.AssignPlayerToTeamRequest;
+import com.backend.SportsClubManagement.DTo.UpdatePlayerRequest;
 import com.backend.SportsClubManagement.Entity.Player;
 import com.backend.SportsClubManagement.Service.PlayerService;
 import jakarta.validation.Valid;
@@ -12,6 +13,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api")
+@CrossOrigin
 public class PlayerController {
 
     @Autowired
@@ -45,5 +47,15 @@ public class PlayerController {
     @GetMapping("/player/get-players-by-sport-id")
     public List<Player> getPlayersByTeamId(@RequestParam Long sportId){
         return playerService.getPlayersBySportId(sportId);
+    }
+
+    @DeleteMapping("/player/delete-by-id")
+    public void deletePlayerById(@RequestParam Long playerId){
+        playerService.deletePlayerById(playerId);
+    }
+
+    @PutMapping("/player/update-player")
+    public void updatePlayer(@RequestBody UpdatePlayerRequest request){
+        playerService.updatePlayer(request);
     }
 }

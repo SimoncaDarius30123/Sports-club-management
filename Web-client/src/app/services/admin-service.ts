@@ -64,14 +64,39 @@ export class AdminService {
     return this.http.put<any>(url, { teamName, coachName });
   }
 
-  updateCoach(coach: Coach, newName: string, newEmail: string, newSport: Sport):Observable<any>{
-    const url= `http://localhost:8080/api/coach/update`;
-    return this.http.put<any>(url,{coach,newName,newEmail,newSport});
+  updateCoach(coach: Coach, newName: string, newEmail: string, newSport: Sport): Observable<any> {
+    const url = `http://localhost:8080/api/coach/update`;
+    return this.http.put<any>(url, { coach, newName, newEmail, newSport });
   }
 
   getAllPlayersForAdmin(): Observable<PlayerAdmin[]> {
     const url = `http://localhost:8080/api/player/get-all`;
     return this.http.get<PlayerAdmin[]>(url);
+  }
+
+  addPlayer(name: string, position: string, age: number, sport: Sport): Observable<any> {
+    const url = `http://localhost:8080/api/player/add-player`;
+    return this.http.post<any>(url, { name, position, age, sport });
+  }
+
+  deletePlayer(playerId: number): Observable<any> {
+    const url = `http://localhost:8080/api/player/delete-by-id?playerId=${playerId}`;
+    return this.http.delete<any>(url);
+  }
+
+  updatePlayer(player: PlayerAdmin, newName: string, newPosition: string, newAge: number, sport: Sport): Observable<any> {
+    const url = `http://localhost:8080/api/player/update-player`;
+    return this.http.put<any>(url, { player, newName, newPosition, newAge, sport });
+  }
+
+  getTeamsBySportId(sportId: number): Observable<Team[]> {
+    const url = `http://localhost:8080/api/team/get-teams-by-sport-id?sportId=${sportId}`;
+    return this.http.get<Team[]>(url);
+  }
+
+  assignPlayerToTeam(playerName: string, teamName: string, sportId: number):Observable<PlayerAdmin> {
+    const url = `http://localhost:8080/api/player/assign-to-team`;
+    return this.http.put<PlayerAdmin>(url,{playerName,teamName,sportId});
   }
 
 }
