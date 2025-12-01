@@ -2,9 +2,12 @@ package com.backend.SportsClubManagement.Service;
 
 import com.backend.SportsClubManagement.DTo.AssignCoachToTeamRequest;
 import com.backend.SportsClubManagement.DTo.GetTeamsWIthAveragePlayerAgeRequest;
+import com.backend.SportsClubManagement.DTo.UpdateTeamRequest;
 import com.backend.SportsClubManagement.Entity.Coach;
+import com.backend.SportsClubManagement.Entity.Player;
 import com.backend.SportsClubManagement.Entity.Team;
 import com.backend.SportsClubManagement.Repository.CoachRepository;
+import com.backend.SportsClubManagement.Repository.PlayerRepository;
 import com.backend.SportsClubManagement.Repository.TeamRepository;
 import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +22,9 @@ public class TeamService {
     private TeamRepository teamRepository;
     @Autowired
     private CoachRepository coachRepository;
+
+    @Autowired
+    private PlayerRepository playerRepository;
 
     @Transactional
     public Team addTeam(Team team) {
@@ -50,5 +56,24 @@ public class TeamService {
 
     public List<Team> getTeamsWithNoCoach(Long sportId) {
         return teamRepository.findByCoachNullAndSportId(sportId);
+    }
+
+    public void deleteTeam(Team team) {
+        List<Player> players = playerRepository.findByTeamId(team.getId());
+        players.forEach(player -> {
+            player.setTeam(null);
+        });
+        teamRepository.delete(team);
+    }
+
+    public void updateTeam(UpdateTeamRequest request){
+        Team team = request.getTeam();
+        if(request.getNewName() != null){
+            team.setName(request.getNewName());
+        }
+        if(request.getNewSport() != null){
+            team.setSport(request.getNewSport());
+        }
+        teamRepository.save(team);
     }
 }

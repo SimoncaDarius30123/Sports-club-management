@@ -7,6 +7,7 @@ import { Coach } from '../interfaces/coach.interface';
 import { Sport } from '../interfaces/sport.interface';
 import { ClientAccount } from '../interfaces/clientAccount.interface';
 import { PlayerAdmin } from '../interfaces/playerAdmin.interface';
+import { TeamAdmin } from '../interfaces/teamAdmin.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -64,6 +65,11 @@ export class AdminService {
     return this.http.put<any>(url, { teamName, coachName });
   }
 
+  unassignCoachFromTeam(coachName: string, sportId: number): Observable<Coach> {
+    const url = `http://localhost:8080/api/coach/unassign`;
+    return this.http.put<Coach>(url, { coachName, sportId });
+  }
+
   updateCoach(coach: Coach, newName: string, newEmail: string, newSport: Sport): Observable<any> {
     const url = `http://localhost:8080/api/coach/update`;
     return this.http.put<any>(url, { coach, newName, newEmail, newSport });
@@ -94,9 +100,31 @@ export class AdminService {
     return this.http.get<Team[]>(url);
   }
 
-  assignPlayerToTeam(playerName: string, teamName: string, sportId: number):Observable<PlayerAdmin> {
+  assignPlayerToTeam(playerName: string, teamName: string, sportId: number): Observable<PlayerAdmin> {
     const url = `http://localhost:8080/api/player/assign-to-team`;
-    return this.http.put<PlayerAdmin>(url,{playerName,teamName,sportId});
+    return this.http.put<PlayerAdmin>(url, { playerName, teamName, sportId });
+  }
+
+  unassignPlayerFromTeam(playerName: string, sportId: number): Observable<PlayerAdmin> {
+    const url = `http://localhost:8080/api/player/unassign-player`;
+    return this.http.put<PlayerAdmin>(url, { playerName, sportId });
+  }
+
+  getAllTeamsAdmin(): Observable<TeamAdmin[]> {
+    const url = `http://localhost:8080/api/team/get-all-teams`;
+    return this.http.get<TeamAdmin[]>(url);
+  }
+
+  addTeam(name: string, sport: Sport): Observable<TeamAdmin> {
+    const url = `http://localhost:8080/api/team/add-team`;
+    return this.http.post<TeamAdmin>(url, { name, sport });
+  }
+
+  deleteTeam(team: TeamAdmin): Observable<any> {
+    const url = `http://localhost:8080/api/team/delete`;
+    return this.http.delete<any>(url, {
+      body:team
+    });
   }
 
 }

@@ -58,4 +58,11 @@ public class CoachService {
         coachRepository.save(coach);
     }
 
+    public void unassignCoachFromTeam(String coachName, Long sportId){
+        Coach coach = coachRepository.findByNameAndSportId(coachName, sportId);
+        Team team = teamRepository.findByCoachId(coach.getId());
+        team.setCoach(null);
+        teamRepository.save(team);
+    }
+
 }

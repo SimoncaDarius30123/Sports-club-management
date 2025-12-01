@@ -26,6 +26,7 @@
                         <li><button class="assignToTeamButton"
                                 (click)="openAssignToTeamMenu(item.sport.id,item.name,item.id)">AssignToTeam</button>
                         </li>
+                        <li><button class="unassignToTeamButton" (click)="unassignCoachFromTeam(item.name,item.sport.id)">UnassignFromTeam</button></li>
                     </ul>
                 </td>
             </tr>

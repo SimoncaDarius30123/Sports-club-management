@@ -99,6 +99,14 @@ export class AdminCoaches {
     })
   }
 
+  unassignCoachFromTeam(coachName:string,sportId:number){
+    this.adminService.unassignCoachFromTeam(coachName,sportId).subscribe({
+      next:(()=>{
+        window.location.reload();
+      })
+    })
+  }
+
   selectSport(sport: Sport) {
     this.coachSport = sport;
     this.isSelected = true;

@@ -1,5 +1,6 @@
 package com.backend.SportsClubManagement.Controller;
 
+import com.backend.SportsClubManagement.DTo.UnassignCoachFromTeamRequest;
 import com.backend.SportsClubManagement.DTo.UpdateCoachRequest;
 import com.backend.SportsClubManagement.Entity.Coach;
 import com.backend.SportsClubManagement.Service.CoachService;
@@ -39,5 +40,10 @@ public class CoachController {
     @PutMapping("/update")
     public void updateCoach(@RequestBody UpdateCoachRequest request){
         coachService.updateCoach(request);
+    }
+
+    @PutMapping("/unassign")
+    public void unassignCoach(@RequestBody UnassignCoachFromTeamRequest request){
+        coachService.unassignCoachFromTeam(request.getCoachName(),  request.getSportId());
     }
 }

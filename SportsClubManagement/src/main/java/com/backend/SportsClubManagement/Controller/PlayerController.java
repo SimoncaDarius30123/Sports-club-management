@@ -1,6 +1,7 @@
 package com.backend.SportsClubManagement.Controller;
 
 import com.backend.SportsClubManagement.DTo.AssignPlayerToTeamRequest;
+import com.backend.SportsClubManagement.DTo.UnassignPlayerFromTeamRequest;
 import com.backend.SportsClubManagement.DTo.UpdatePlayerRequest;
 import com.backend.SportsClubManagement.Entity.Player;
 import com.backend.SportsClubManagement.Service.PlayerService;
@@ -57,5 +58,10 @@ public class PlayerController {
     @PutMapping("/player/update-player")
     public void updatePlayer(@RequestBody UpdatePlayerRequest request){
         playerService.updatePlayer(request);
+    }
+
+    @PutMapping("/player/unassign-player")
+    public void unassignPlayerFromTeam(@RequestBody UnassignPlayerFromTeamRequest request){
+        playerService.unassignPlayerFromTeam(request.getPlayerName(), request.getSportId());
     }
 }

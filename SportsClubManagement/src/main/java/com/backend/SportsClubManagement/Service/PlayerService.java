@@ -74,4 +74,14 @@ public class PlayerService {
         playerRepository.save(player);
     }
 
+    public void unassignPlayerFromTeam(String playerName, Long sportId) {
+        Player player = playerRepository.findByNameAndSportId(playerName, sportId);
+        player.setTeam(null);
+        playerRepository.save(player);
+    }
+
+    public List<Player> getTeamPlayers(Long teamId) {
+        return playerRepository.findByTeamId(teamId);
+    }
+
 }

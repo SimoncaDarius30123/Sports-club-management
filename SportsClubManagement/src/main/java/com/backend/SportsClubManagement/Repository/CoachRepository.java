@@ -10,4 +10,6 @@ import java.util.List;
 public interface CoachRepository extends JpaRepository<Coach,Long> {
     Coach findByName(String name);
     List<Coach> findBySportId(Long sportId);
+
+    Coach findByNameAndSportId(String name, Long sportId);
 }

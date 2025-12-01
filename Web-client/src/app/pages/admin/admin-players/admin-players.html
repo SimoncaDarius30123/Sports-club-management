@@ -26,6 +26,7 @@
                         <li><button class="deleteButton" (click)="deletePlayer(item.id)">Delete</button></li>
                         <li><button class="updateButton" (click)="openUpdateMenu(item)">Update</button></li>
                         <li><button class="assignToTeamButton" (click)="openAssignToTeamMenu(item)">AssignToTeam</button></li>
+                        <li><button class="unassignToTeamButton" (click)="unassignPlayerFromTeam(item.name,item.sport.id)">UnassignFromTeam</button></li>
                     </ul>
                 </td>
             </tr>
@@ -98,7 +99,7 @@
 <div class="assignToTeamMenu" *ngIf="showAssignToTeamMenu">
     <div class="menu">
         <div class="up">
-            <h1>Assign Coach To a Team Menu</h1>
+            <h1>Assign Player To a Team Menu</h1>
             <h2 (click)="closeAssignToTeamMenu()">x</h2>
         </div>
         <div class="rest">

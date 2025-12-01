@@ -105,13 +105,29 @@
                         padding: 10px;
                         border-radius: 5px;
                         cursor: pointer;
-                        width: 196%;
+                        width: 95%;
                         color: #fff;
                         font-family: 'k2d';
                         letter-spacing: 1px;
 
                         &:hover {
                             background-color: rgb(116, 120, 37);
+                        }
+                    }
+                    .unassignToTeamButton {
+                        margin-top: 5px;
+                        background-color: rgb(140, 21, 187);
+                        border: none;
+                        padding: 10px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 95%;
+                        color: #fff;
+                        font-family: 'k2d';
+                        letter-spacing: 1px;
+
+                        &:hover {
+                            background-color: rgb(69, 14, 91);
                         }
                     }
                 }
@@ -482,6 +498,7 @@
                 align-items: center;
                 width: 90%;
                 margin-left: 10px;
+                margin-bottom: 10px;
                 font-family: 'k2d';
                 background-color: #b5b0b0;
 

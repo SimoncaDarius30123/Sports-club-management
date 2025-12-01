@@ -2,6 +2,7 @@ package com.backend.SportsClubManagement.Controller;
 
 import com.backend.SportsClubManagement.DTo.AssignCoachToTeamRequest;
 import com.backend.SportsClubManagement.DTo.GetTeamsWIthAveragePlayerAgeRequest;
+import com.backend.SportsClubManagement.DTo.UpdateTeamRequest;
 import com.backend.SportsClubManagement.Entity.Team;
 import com.backend.SportsClubManagement.Service.TeamService;
 import jakarta.validation.Valid;
@@ -51,5 +52,15 @@ public class TeamController {
     @GetMapping("/get-teams-with-no-coach")
     public List<Team> getTeamsWithNoCoach(@RequestParam Long sportId) {
         return teamService.getTeamsWithNoCoach(sportId);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteTeam(@RequestBody Team team){
+        teamService.deleteTeam(team);
+    }
+
+    @PutMapping("/update")
+    public void updateTeam(@RequestBody UpdateTeamRequest updateTeamRequest) {
+        teamService.updateTeam(updateTeamRequest);
     }
 }

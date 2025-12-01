@@ -171,4 +171,12 @@ export class AdminPlayers {
     })
   }
 
+  unassignPlayerFromTeam(playerName:string,sportId:number){
+    this.adminService.unassignPlayerFromTeam(playerName,sportId).subscribe({
+      next:(()=>{
+        window.location.reload();
+      })
+    })
+  }
+
 }
