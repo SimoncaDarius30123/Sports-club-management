@@ -21,7 +21,7 @@
                     <ul>
                         <ul>
                             <li><button class="deleteButton" (click)="deleteTeam(item)">Delete</button></li>
-                            <li><button class="updateButton">Update</button></li>
+                            <li><button class="updateButton" (click)="openUpdateMenu(item)">Update</button></li>
                         </ul>
                     </ul>
                 </td>
@@ -58,15 +58,15 @@
     </div>
 </div>
 
-<div class="updateTeamMenu" *ngIf="showAddTeamMenu">
+<div class="updateTeamMenu" *ngIf="showUpdateTeamMenu">
     <div class="menu">
         <div class="up">
             <h1>Update Team Menu</h1>
-            <h2 (click)="closeAddTeamMenu()">x</h2>
+            <h2 (click)="closeUpdateTeamMenu()">x</h2>
         </div>
         <div class="rest">
             <form #f="ngForm">
-                <input type="text" name="teamName" id="teamName" [(ngModel)]="teamName" placeholder="Team-name"
+                <input type="text" name="teamNewName" id="teamNewName" [(ngModel)]="teamNewName" placeholder="Team-name"
                     autocomplete="given-name">
                 <div class="sports">
                     @for(item of sports;track item.name){
@@ -76,7 +76,7 @@
                     </div>
                     }
                 </div>
-                <button [disabled]="f.invalid" (click)="addTeam(teamName)">Update Team</button>
+                <button [disabled]="f.invalid" (click)="updateTeam(teamNewName)">Update Team</button>
 
             </form>
             <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>

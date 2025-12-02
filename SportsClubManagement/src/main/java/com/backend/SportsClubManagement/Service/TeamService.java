@@ -68,7 +68,7 @@ public class TeamService {
 
     public void updateTeam(UpdateTeamRequest request){
         Team team = request.getTeam();
-        if(request.getNewName() != null){
+        if(request.getNewName() != null && !request.getNewName().isEmpty()){
             team.setName(request.getNewName());
         }
         if(request.getNewSport() != null){

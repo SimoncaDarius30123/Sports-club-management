@@ -127,4 +127,9 @@ export class AdminService {
     });
   }
 
+  updateTeam(team: TeamAdmin, newName: string, newSport: Sport): Observable<any> {
+    const url = `http://localhost:8080/api/team/update`;
+    return this.http.put<any>(url, { team, newName, newSport });
+  }
+
 }

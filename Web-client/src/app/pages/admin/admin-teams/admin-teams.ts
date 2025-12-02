@@ -4,6 +4,7 @@ import { AdminService } from '../../../services/admin-service';
 import { FormsModule } from '@angular/forms';
 import { NgClass, NgIf } from '@angular/common';
 import { Sport } from '../../../interfaces/sport.interface';
+import { PlayerAdmin } from '../../../interfaces/playerAdmin.interface';
 
 @Component({
   selector: 'app-admin-teams',
@@ -14,6 +15,7 @@ import { Sport } from '../../../interfaces/sport.interface';
 export class AdminTeams {
 
   // variables
+  teamNewName: string = '';
   teams: TeamAdmin[] = [];
   cdt = inject(ChangeDetectorRef);
   showAddTeamMenu: boolean = false;
@@ -26,6 +28,7 @@ export class AdminTeams {
   selectedSport: Sport | null = null;
   showUpdateTeamMenu: boolean = false;
   teamToUpdate: TeamAdmin | null = null;
+  players: PlayerAdmin[] = [];
 
   // services
   adminService = inject(AdminService);
@@ -44,6 +47,13 @@ export class AdminTeams {
         this.cdt.detectChanges();
       })
     })
+
+    this.adminService.getAllPlayersForAdmin().subscribe({
+      next: ((players: PlayerAdmin[]) => {
+        this.players = players;
+        this.cdt.detectChanges();
+      })
+    });
 
   }
 
@@ -93,8 +103,45 @@ export class AdminTeams {
     })
   }
 
-  openUpdateMenu(team:TeamAdmin) {
+  openUpdateMenu(team: TeamAdmin) {
     this.showUpdateTeamMenu = true;
+    this.teamToUpdate = team;
+    this.cdt.detectChanges();
+  }
+
+  closeUpdateTeamMenu() {
+    this.showUpdateTeamMenu = false;
+    this.teamNewName = '';
+  }
+
+  updateTeam(newName: string) {
+    let teamHavePlayers = false;
+    this.players.forEach(player => {
+      if (player.team.name === this.teamToUpdate?.name) {
+        teamHavePlayers = true;
+      }
+    });
+    if ((this.teamToUpdate?.coach || teamHavePlayers) && this.selectedSport) {
+      this.errorMessage = "Cannot update sport with assigned coach or players!";
+      this.cdt.detectChanges();
+    }
+    else {
+      this.adminService.updateTeam(this.teamToUpdate!, newName, this.selectedSport!).subscribe({
+        next: (() => {
+          this.errorMessage = '';
+          this.succesMessage = "Succes!";
+          this.cdt.detectChanges();
+          setTimeout(() => {
+            window.location.reload();
+          }, 1500)
+        }),
+        error: (() => {
+          this.succesMessage = '';
+          this.errorMessage = "This team already exists!";
+          this.cdt.detectChanges();
+        })
+      });
+    }
   }
 
 }

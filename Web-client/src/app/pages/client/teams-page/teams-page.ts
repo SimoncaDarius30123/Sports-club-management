@@ -39,6 +39,7 @@ export class TeamsPage {
     this.clientService.getTeamsNameAndAverage(this.sportId).subscribe({
       next: (team => {
         this.teams = team;
+        console.log(team)
         this.cdt.detectChanges();
       })
     });
