@@ -123,13 +123,38 @@ export class AdminService {
   deleteTeam(team: TeamAdmin): Observable<any> {
     const url = `http://localhost:8080/api/team/delete`;
     return this.http.delete<any>(url, {
-      body:team
+      body: team
     });
   }
 
   updateTeam(team: TeamAdmin, newName: string, newSport: Sport): Observable<any> {
     const url = `http://localhost:8080/api/team/update`;
     return this.http.put<any>(url, { team, newName, newSport });
+  }
+
+  getPlayersBySportId(sportId: number): Observable<PlayerAdmin[]> {
+    const url = `http://localhost:8080/api/player/get-players-by-sport-id?sportId=${sportId}`;
+    return this.http.get<PlayerAdmin[]>(url);
+  }
+
+  getCoachesBySportId(sportId: number): Observable<Coach[]> {
+    const url = `http://localhost:8080/api/coach/get-coaches-by-sport-id?sportId=${sportId}`;
+    return this.http.get<Coach[]>(url);
+  }
+
+  deleteSport(sportId: number): Observable<any> {
+    const url = `http://localhost:8080/api/sport/delete?sportId=${sportId}`;
+    return this.http.delete<any>(url);
+  }
+
+  updateSport(sport: Sport, newName: string): Observable<any> {
+    const url = `http://localhost:8080/api/sport/update`;
+    return this.http.put<any>(url, { sport, newName });
+  }
+
+  addSport(name: string): Observable<Sport> {
+    const url = `http://localhost:8080/api/sport/add-sport`;
+    return this.http.post<Sport>(url, { name });
   }
 
 }

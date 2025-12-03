@@ -1,5 +1,6 @@
 package com.backend.SportsClubManagement.Service;
 
+import com.backend.SportsClubManagement.DTo.UpdateSportRequest;
 import com.backend.SportsClubManagement.Entity.Sport;
 import com.backend.SportsClubManagement.Repository.SportRepository;
 import jakarta.transaction.Transactional;
@@ -31,4 +32,15 @@ public class SportService {
     }
 
 
+    public void deleteSport(Long sportId) {
+        sportRepository.deleteById(sportId);
+    }
+
+    public void updateSport(UpdateSportRequest request) {
+        Sport sport = request.getSport();
+        if(request.getNewName()!= null && !request.getNewName().isEmpty()){
+            sport.setName(request.getNewName());
+        }
+        sportRepository.save(sport);
+    }
 }

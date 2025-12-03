@@ -1,5 +1,6 @@
 package com.backend.SportsClubManagement.Controller;
 
+import com.backend.SportsClubManagement.DTo.UpdateSportRequest;
 import com.backend.SportsClubManagement.Entity.Sport;
 import com.backend.SportsClubManagement.Service.SportService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,6 +33,14 @@ public class SportController {
         return sportService.getSportByName(sportName);
     }
 
+    @DeleteMapping("/delete")
+    public void deleteSport(@RequestParam Long sportId) {
+        sportService.deleteSport(sportId);
+    }
 
+    @PutMapping("/update")
+    public void updateSport(@RequestBody UpdateSportRequest request){
+        sportService.updateSport(request);
+    }
 
 }
