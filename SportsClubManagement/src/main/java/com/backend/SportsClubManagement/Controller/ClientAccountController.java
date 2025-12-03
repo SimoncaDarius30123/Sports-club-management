@@ -14,6 +14,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/api/client-account")
+@CrossOrigin
 public class ClientAccountController {
 
     @Autowired
@@ -35,6 +36,16 @@ public class ClientAccountController {
 
     @GetMapping("/get-all")
     public List<ClientAccount> getAllClientAccount() {
+        return clientAccountService.getClientAccountsByRole("ADMIN");
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteClient(@RequestParam Long clientId) {
+        clientAccountService.deleteClient(clientId);
+    }
+
+    @GetMapping("/get-all-clients")
+    public List<ClientAccount> getAllClients() {
         return clientAccountService.getClientAccounts();
     }
 }

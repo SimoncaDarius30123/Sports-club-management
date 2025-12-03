@@ -157,4 +157,14 @@ export class AdminService {
     return this.http.post<Sport>(url, { name });
   }
 
+  getUsers(): Observable<ClientAccount[]> {
+    const url = `http://localhost:8080/api/client-account/get-all`;
+    return this.http.get<ClientAccount[]>(url);
+  }
+
+  deleteUser(clientId: number): Observable<any> {
+    const url = `http://localhost:8080/api/client-account/delete?clientId=${clientId}`;
+    return this.http.delete<any>(url);
+  }
+
 }

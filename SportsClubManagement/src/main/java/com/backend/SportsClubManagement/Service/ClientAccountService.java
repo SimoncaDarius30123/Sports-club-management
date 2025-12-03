@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ClientAccountService {
@@ -32,5 +33,14 @@ public class ClientAccountService {
 
     public List<ClientAccount> getClientAccounts() {
         return this.clientAccountRepository.findAll();
+    }
+
+    public List<ClientAccount> getClientAccountsByRole(String role) {
+        return clientAccountRepository.findByRoleNot(role);
+    }
+
+    public void deleteClient(Long clientId){
+        Optional<ClientAccount> client = clientAccountRepository.findById(Math.toIntExact(clientId));
+        clientAccountRepository.delete(client.get());
     }
 }
