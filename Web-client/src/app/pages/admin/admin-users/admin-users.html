@@ -1,0 +1,22 @@
+<div class="container">
+    <div class="upContainer">
+        <h1>Users</h1>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Options</th>
+            </tr>
+            @for(item of users;track item.id){
+                <tr>
+                    <td>{{item.username}}</td>
+                    <td>{{item.email}}</td>
+                    <td><button class="deleteButton" (click)="deleteUser(item.id)">BAN</button></td>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

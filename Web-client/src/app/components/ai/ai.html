@@ -1,0 +1,32 @@
+<div class="container" *ngIf="showAvatar" (click)="showAiChat()">
+    <fa-icon [icon]="faRobot"></fa-icon>
+</div>
+
+<div class="aiChatMenu" *ngIf="showAiChatMenu">
+    <div class="exitMenu">
+        <div class="chatbotAvatar">
+            <fa-icon [icon]="faRobot"></fa-icon>
+            <h1>ChatBot</h1>
+            <div class="greenCircle"></div>
+        </div>
+        <div class="exitButton">
+            <h1 (click)="closeAiChat()">x</h1>
+        </div>
+
+    </div>
+
+    <div class="content">
+        @for(item of messages; track $index){
+        <div class="message" [ngClass]="($index % 2 === 0) ? 'ai' : 'me'">
+            <p>{{item}}</p>
+        </div>
+        }
+    </div>
+
+    <div class="userMessage">
+        <form #f="ngForm" (ngSubmit)="sendRequest(request)">
+            <textarea type="text" name="request" id="request" [(ngModel)]="request" required placeholder="Ask something"></textarea>
+            <button [disabled]="f.invalid">&#8593;</button>
+        </form>
+    </div>
+</div>

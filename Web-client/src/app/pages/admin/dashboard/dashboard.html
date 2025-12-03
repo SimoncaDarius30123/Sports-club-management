@@ -1,0 +1,97 @@
+<div class="container">
+    <h1>Dashboard</h1>
+    <div class="cards">
+
+        <div class="playerCard">
+            <div class="upperCard">
+                <div class="leftSide">
+                    <h1>{{totalPlayers}}</h1>
+                    <h2>Total Players</h2>
+                </div>
+                <div class="rightSide">
+                    <fa-icon [icon]="faStatistic"></fa-icon>
+                </div>
+            </div>
+            <a routerLink="/admin/players">
+                <div class="backOfCard">
+                    <h2>More info</h2>
+                    <fa-icon [icon]="faInfo"></fa-icon>
+                </div>
+            </a>
+        </div>
+
+
+        <div class="teamCard">
+            <div class="upperCard">
+                <div class="leftSide">
+                    <h1>{{totalTeams}}</h1>
+                    <h2>Total Teams</h2>
+                </div>
+                <div class="rightSide">
+                    <fa-icon [icon]="faStatistic"></fa-icon>
+                </div>
+            </div>
+            <a routerLink="/admin/teams">
+                <div class="backOfCard">
+                    <h2>More info</h2>
+                    <fa-icon [icon]="faInfo"></fa-icon>
+                </div>
+            </a>
+        </div>
+
+        <div class="coachCard">
+            <div class="upperCard">
+                <div class="leftSide">
+                    <h1>{{totalCoaches}}</h1>
+                    <h2>Total Coaches</h2>
+                </div>
+                <div class="rightSide">
+                    <fa-icon [icon]="faStatistic"></fa-icon>
+                </div>
+            </div>
+            <a routerLink="/admin/coaches">
+                <div class="backOfCard">
+                    <h2>More info</h2>
+                    <fa-icon [icon]="faInfo"></fa-icon>
+                </div>
+            </a>
+        </div>
+
+        <div class="sportsCard">
+            <div class="upperCard">
+                <div class="leftSide">
+                    <h1>{{totalSports}}</h1>
+                    <h2>Total Sports</h2>
+                </div>
+                <div class="rightSide">
+                    <fa-icon [icon]="faStatistic"></fa-icon>
+                </div>
+            </div>
+            <a routerLink="/admin/sports">
+                <div class="backOfCard">
+                    <h2>More info</h2>
+                    <fa-icon [icon]="faInfo"></fa-icon>
+                </div>
+            </a>
+        </div>
+
+        <div class="usersCard">
+            <div class="upperCard">
+                <div class="leftSide">
+                    <h1>{{totalUsers}}</h1>
+                    <h2>Total Users</h2>
+                </div>
+                <div class="rightSide">
+                    <fa-icon [icon]="faStatistic"></fa-icon>
+                </div>
+            </div>
+            <a routerLink="/admin/users">
+                <div class="backOfCard">
+                    <h2>More info</h2>
+                    <fa-icon [icon]="faInfo"></fa-icon>
+                </div>
+            </a>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css?family=K2D');
+
+.container {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
+    height: 14vh;
+    background-color: #F5F5F5;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    box-shadow: 1px 1px 1px 1px rgb(216, 212, 212);
+    display: flex;
+    flex-direction: row;
+
+    .logo {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        img {
+            width: 30%;
+            height: 50%;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-left: 5px;
+            font-family: 'k2d';
+            letter-spacing: 5px;
+            font-weight: bold;
+        }
+    }
+
+    .nav {
+        width: 70%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        ul {
+            list-style: none;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+
+            a {
+                text-decoration: none;
+                color: inherit;
+                display: flex;
+                display: flex;
+                align-items: center;
+                
+                
+                &:hover {
+                    color: #C0392B;
+                    cursor: pointer;
+                }
+
+                fa-icon {
+                    margin-right: 5px;
+                    font-size: 1.5rem;
+                    display: flex;
+                    align-items: center;
+                }
+            }
+
+            .link-active {
+                color: #C0392B;
+            }
+
+            li {
+                font-family: 'k2d';
+                font-weight: bold;
+                margin-right: 30px;
+                cursor: pointer;
+                font-size: 1.4rem;
+                letter-spacing: 2px;
+            }
+        }
+    }
+
+    .user {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        justify-content: right;
+        align-items: center;
+
+        .avatar {
+            margin-right: 25px;
+            border-radius: 50%;
+            background-color: rgb(216, 212, 212);
+            width: 60px;
+            height: 60px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'k2d';
+            font-weight: bold;
+            font-size: 1.4rem;
+
+            &:hover {
+                cursor: pointer;
+                background-color: #d0bfbd;
+            }
+
+        }
+    }
+}
+
+.userMenu {
+    position: absolute;
+    background-color: #F5F5F5;
+    width: auto;
+    padding: 25px;
+    font-family: 'k2d';
+    font-weight: 500;
+    height: auto;
+    right: 0;
+    top: 14vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+
+    span {
+        font-weight: bold;
+    }
+
+    .disconnect {
+        color: red;
+        font-weight: bold;
+        margin-top: 10px;
+        cursor: pointer;
+
+        &:hover {
+            color: rgb(189, 21, 21);
+        }
+    }
+}

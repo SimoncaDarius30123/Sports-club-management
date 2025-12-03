@@ -2,6 +2,7 @@ package com.backend.SportsClubManagement.Controller;
 
 import com.backend.SportsClubManagement.DTo.AssignCoachToTeamRequest;
 import com.backend.SportsClubManagement.DTo.GetTeamsWIthAveragePlayerAgeRequest;
+import com.backend.SportsClubManagement.DTo.UpdateTeamRequest;
 import com.backend.SportsClubManagement.Entity.Team;
 import com.backend.SportsClubManagement.Service.TeamService;
 import jakarta.validation.Valid;
@@ -12,6 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/team")
+@CrossOrigin
 public class TeamController {
 
     @Autowired
@@ -40,5 +42,25 @@ public class TeamController {
     @GetMapping("/get-teams-by-sport-id")
     public List<Team> getTeamsBySportId(@RequestParam Long sportId) {
         return teamService.getTeamsBySportId(sportId);
+    }
+
+    @GetMapping("/get-team-by-coach-id")
+    public Team getTeamByCoachId(@RequestParam Long coachId){
+        return  teamService.getTeamByCoachId(coachId);
+    }
+
+    @GetMapping("/get-teams-with-no-coach")
+    public List<Team> getTeamsWithNoCoach(@RequestParam Long sportId) {
+        return teamService.getTeamsWithNoCoach(sportId);
+    }
+
+    @DeleteMapping("/delete")
+    public void deleteTeam(@RequestBody Team team){
+        teamService.deleteTeam(team);
+    }
+
+    @PutMapping("/update")
+    public void updateTeam(@RequestBody UpdateTeamRequest updateTeamRequest) {
+        teamService.updateTeam(updateTeamRequest);
     }
 }

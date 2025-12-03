@@ -1,0 +1,70 @@
+<div class="container">
+    <div class="upContainer">
+        <h1>Sports</h1>
+        <button (click)="openAddSportMenu()">+</button>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Number of Players</th>
+                <th>Number of Coaches</th>
+                <th>Number of Teams</th>
+                <th>Options</th>
+            </tr>
+            @for(item of sports;track item.name) {
+            <tr>
+                <td>{{item.name}}</td>
+                <td>{{playersBySport[item.id]}}</td>
+                <td>{{coachesBySport[item.id]}}</td>
+                <td>{{teamsBySport[item.id]}}</td>
+                <td>
+                    <ul>
+                        <li><button class="deleteButton" (click)="deleteSport(item.id)">Delete</button></li>
+                        <li><button class="updateButton" (click)="openUpdateMenu(item)">Update</button></li>
+                    </ul>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="updateSportMenu" *ngIf="showUpdateMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Update Sport Menu</h1>
+            <h2 (click)="closeUpdateMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm">
+                <input type="text" name="newName" id="newName" [(ngModel)]="newName" placeholder="Sport-name"
+                    autocomplete="given-name">
+                <button [disabled]="f.invalid" (click)="updateSport(newName)">Update Sport</button>
+
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="addSportMenu" *ngIf="showAddSportMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Add Team Menu</h1>
+            <h2 (click)="closeAddSportMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm">
+                <input type="text" name="sportName" id="sportName" [(ngModel)]="sportName" placeholder="Sport-name"
+                    autocomplete="given-name">
+                <button [disabled]="f.invalid" (click)="addSport(sportName)">Add Sport</button>
+
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>

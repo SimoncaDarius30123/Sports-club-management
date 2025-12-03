@@ -1,0 +1,86 @@
+<div class="container">
+    <div class="upContainer">
+        <h1>Teams</h1>
+        <button (click)="openAddTeamMenu()">+</button>
+    </div>
+
+    <div class="table-wrapper">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Coach</th>
+                <th>Sport</th>
+                <th>Options</th>
+            </tr>
+            @for(item of teams;track item.name){
+            <tr>
+                <td>{{item?.name}}</td>
+                <td>{{item?.coach?.name}}</td>
+                <td>{{item?.sport?.name}}</td>
+                <td>
+                    <ul>
+                        <ul>
+                            <li><button class="deleteButton" (click)="deleteTeam(item)">Delete</button></li>
+                            <li><button class="updateButton" (click)="openUpdateMenu(item)">Update</button></li>
+                        </ul>
+                    </ul>
+                </td>
+            </tr>
+            }
+        </table>
+    </div>
+</div>
+
+<div class="addTeamMenu" *ngIf="showAddTeamMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Add Team Menu</h1>
+            <h2 (click)="closeAddTeamMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm">
+                <input type="text" name="teamName" id="teamName" [(ngModel)]="teamName" placeholder="Team-name"
+                    autocomplete="given-name">
+                <div class="sports">
+                    @for(item of sports;track item.name){
+                    <div class="element" [attr.id]="item.id" [ngClass]="{'selected':item.id === sportId}"
+                        (click)="selectSport(item)">
+                        <p>{{item.name}}</p>
+                    </div>
+                    }
+                </div>
+                <button [disabled]="f.invalid" (click)="addTeam(teamName)">Add Team</button>
+
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="updateTeamMenu" *ngIf="showUpdateTeamMenu">
+    <div class="menu">
+        <div class="up">
+            <h1>Update Team Menu</h1>
+            <h2 (click)="closeUpdateTeamMenu()">x</h2>
+        </div>
+        <div class="rest">
+            <form #f="ngForm">
+                <input type="text" name="teamNewName" id="teamNewName" [(ngModel)]="teamNewName" placeholder="Team-name"
+                    autocomplete="given-name">
+                <div class="sports">
+                    @for(item of sports;track item.name){
+                    <div class="element" [attr.id]="item.id" [ngClass]="{'selected':item.id === sportId}"
+                        (click)="selectSport(item)">
+                        <p>{{item.name}}</p>
+                    </div>
+                    }
+                </div>
+                <button [disabled]="f.invalid" (click)="updateTeam(teamNewName)">Update Team</button>
+
+            </form>
+            <p *ngIf="errorMessage" class="errorMessage">{{errorMessage}}</p>
+            <p *ngIf="succesMessage" class="succesMessage">{{succesMessage}}</p>
+        </div>
+    </div>
+</div>

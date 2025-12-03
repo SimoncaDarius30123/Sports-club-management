@@ -1,0 +1,436 @@
+.container{
+    position:absolute;
+    width: 77%;
+    height: 92vh;
+    margin-top: 8vh;
+    margin-left: 23%;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+    
+    h1{
+        width: 100%;
+        letter-spacing: 3px;
+        font-family: 'k2d';
+    }
+
+    .cards{
+        width: 100%;
+        margin-top: 10px;
+        display: grid;
+        height: 100%;
+        grid-template-columns: repeat(3,1fr);
+        gap:15px;
+        
+        .playerCard{
+            height: 65%;
+            background-color: #00BFFF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upperCard{
+                display: flex;
+                flex-direction: row;
+                height: 80%;
+
+                .leftSide{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    color:#fff;
+                    justify-content: center;
+                    
+                    h1{
+                        margin-left: 10px;
+                    }
+
+                    h2{
+                        width: 100%;
+                        font-size: 1.3rem;
+                        font-weight: 100;
+                        margin-left: 10px;
+                        margin-top: 30px;
+                        font-family: 'k2d';
+                        
+                    }
+                }
+
+                .rightSide{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+                    fa-icon{
+                        color:rgba(2, 165, 205, 1);
+                        font-size: 5rem;
+                    }
+                }
+                
+            }
+
+            a{
+                text-decoration: none;
+                width: 100%;
+                color: inherit;
+                height: 20%;
+            }
+
+            .backOfCard{
+                display: flex;
+                background-color: #098ab5;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                &:hover{
+                    background-color: darkblue;
+                }
+                h2{
+                    font-family: 'k2d';
+                    color:#fff;
+                    font-size: 1.1rem;
+                }
+
+                fa-icon{
+                    color:#fff;
+                    font-size: 1.1rem;
+                    margin-left: 5px;
+                    margin-top: 4px;
+                }
+            }
+        }
+
+        .teamCard{
+            height: 65%;
+            background-color: #FFA500;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upperCard{
+                display: flex;
+                flex-direction: row;
+                height: 80%;
+
+                .leftSide{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    color:#fff;
+                    justify-content: center;
+                    
+                    h1{
+                        margin-left: 10px;
+                    }
+
+                    h2{
+                        width: 100%;
+                        font-size: 1.3rem;
+                        font-weight: 100;
+                        margin-left: 10px;
+                        margin-top: 30px;
+                        font-family: 'k2d';
+                    }
+                }
+
+                .rightSide{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+                    fa-icon{
+                        color:rgb(218, 141, 16);
+                        font-size: 5rem;
+                    }
+                }
+                
+            }
+
+            a{
+                text-decoration: none;
+                width: 100%;
+                color: inherit;
+                height: 20%;
+            }
+
+            .backOfCard{
+                display: flex;
+                background-color: #ac850e;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                &:hover{
+                    background-color: rgb(127, 92, 4);
+                }
+                h2{
+                    font-family: 'k2d';
+                    color:#fff;
+                    font-size: 1.1rem;
+                }
+
+                fa-icon{
+                    color:#fff;
+                    font-size: 1.1rem;
+                    margin-left: 5px;
+                    margin-top: 4px;
+                }
+            }
+        }
+
+        .coachCard{
+            height: 65%;
+            background-color: #FF4500;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upperCard{
+                display: flex;
+                flex-direction: row;
+                height: 80%;
+
+                .leftSide{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    color:#fff;
+                    justify-content: center;
+                    
+                    h1{
+                        margin-left: 10px;
+                    }
+
+                    h2{
+                        width: 100%;
+                        font-size: 1.25rem;
+                        font-weight: 100;
+                        margin-left: 10px;
+                        margin-top: 30px;
+                        font-family: 'k2d';
+                    }
+                }
+
+                .rightSide{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+                    fa-icon{
+                        color:rgb(224, 24, 24);
+                        font-size: 5rem;
+                    }
+                }
+                
+            }
+
+            a{
+                text-decoration: none;
+                width: 100%;
+                color: inherit;
+                height: 20%;
+            }
+
+            .backOfCard{
+                display: flex;
+                background-color: rgb(183, 47, 47);
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                &:hover{
+                    background-color: rgb(224, 24, 24);
+                }
+                h2{
+                    font-family: 'k2d';
+                    color:#fff;
+                    font-size: 1.1rem;
+                }
+
+                fa-icon{
+                    color:#fff;
+                    font-size: 1.1rem;
+                    margin-left: 5px;
+                    margin-top: 4px;
+                }
+            }
+        }
+
+        .sportsCard{
+            height: 65%;
+            background-color: #32CD32;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upperCard{
+                display: flex;
+                flex-direction: row;
+                height: 80%;
+
+                .leftSide{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    color:#fff;
+                    justify-content: center;
+                    
+                    h1{
+                        margin-left: 10px;
+                    }
+
+                    h2{
+                        width: 100%;
+                        font-size: 1.25rem;
+                        font-weight: 100;
+                        margin-left: 10px;
+                        margin-top: 30px;
+                        font-family: 'k2d';
+                    }
+                }
+
+                .rightSide{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+                    fa-icon{
+                        color:#359835;
+                        font-size: 5rem;
+                    }
+                }
+                
+            }
+
+            a{
+                text-decoration: none;
+                width: 100%;
+                color: inherit;
+                height: 20%;
+            }
+
+            .backOfCard{
+                display: flex;
+                background-color: #156d15;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                &:hover{
+                    background-color: #0c370c;
+                }
+                h2{
+                    font-family: 'k2d';
+                    color:#fff;
+                    font-size: 1.1rem;
+                }
+
+                fa-icon{
+                    color:#fff;
+                    font-size: 1.1rem;
+                    margin-left: 5px;
+                    margin-top: 4px;
+                }
+            }
+        }
+
+        .usersCard{
+            height: 65%;
+            background-color: #FF00FF;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .upperCard{
+                display: flex;
+                flex-direction: row;
+                height: 80%;
+
+                .leftSide{
+                    width: 50%;
+                    display: flex;
+                    flex-direction: column;
+                    height: 100%;
+                    color:#fff;
+                    justify-content: center;
+                    
+                    h1{
+                        margin-left: 10px;
+                    }
+
+                    h2{
+                        width: 100%;
+                        font-size: 1.25rem;
+                        font-weight: 100;
+                        margin-left: 10px;
+                        margin-top: 30px;
+                        font-family: 'k2d';
+                    }
+                }
+
+                .rightSide{
+                    width: 50%;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100%;
+
+                    fa-icon{
+                        color:#923992;
+                        font-size: 5rem;
+                    }
+                }
+                
+            }
+
+            a{
+                text-decoration: none;
+                width: 100%;
+                color: inherit;
+                height: 20%;
+            }
+
+            .backOfCard{
+                display: flex;
+                background-color: #833483;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+                &:hover{
+                    background-color: #511e51;
+                }
+                h2{
+                    font-family: 'k2d';
+                    color:#fff;
+                    font-size: 1.1rem;
+                }
+
+                fa-icon{
+                    color:#fff;
+                    font-size: 1.1rem;
+                    margin-left: 5px;
+                    margin-top: 4px;
+                }
+            }
+        }
+    }
+}

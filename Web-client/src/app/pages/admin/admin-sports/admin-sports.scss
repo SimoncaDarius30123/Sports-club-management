@@ -1,0 +1,406 @@
+.container {
+    position: absolute;
+    width: 77%;
+    height: 92vh;
+    margin-top: 8vh;
+    margin-left: 23%;
+    display: flex;
+    padding: 16px;
+    flex-direction: column;
+
+    .upContainer {
+        display: flex;
+        flex-direction: row;
+
+        h1 {
+            letter-spacing: 3px;
+            font-family: 'k2d';
+        }
+
+        button {
+            background-color: rgb(25, 208, 55);
+            border: none;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            width: 5%;
+            margin-left: 5px;
+            color: #fff;
+            font-family: 'k2d';
+            letter-spacing: 1px;
+
+            &:hover {
+                background-color: rgb(46, 113, 28);
+            }
+        }
+    }
+
+    .table-wrapper {
+        margin-top: 10px;
+        width: 95%;
+        display: flex;
+        align-self:center;
+        height: auto;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            border: 1px solid #b5b0b0;
+            padding: 10px;
+            background: #f6fbf9;
+            color: black;
+            font-family: 'k2d';
+            font-size: 20px;
+            text-align: left;
+
+            ul {
+                list-style: none;
+                display: flex;
+                flex-direction: row;
+                width: 95%;
+                justify-content: space-evenly;
+
+                li {
+                    .deleteButton {
+                        background-color: red;
+                        border: none;
+                        padding: 10px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 109%;
+                        color: #fff;
+                        font-family: 'k2d';
+                        letter-spacing: 1px;
+
+                        &:hover {
+                            background-color: rgb(127, 32, 32);
+                        }
+                    }
+
+                    .updateButton {
+                        background-color: blue;
+                        border: none;
+                        padding: 10px;
+                        border-radius: 5px;
+                        cursor: pointer;
+                        width: 110%;
+                        color: #fff;
+                        font-family: 'k2d';
+                        letter-spacing: 1px;
+
+                        &:hover {
+                            background-color: rgb(20, 36, 79);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.updateSportMenu {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.83);
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        font-family: 'k2d';
+        letter-spacing: 3px;
+        width: 45%;
+        height: 60vh;
+        background-color: rgb(255, 254, 254);
+        padding: 10px;
+        border-radius: 15px;
+
+        .up {
+            width: 100%;
+            height: 15%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid black;
+
+            h1 {
+                letter-spacing: 5px;
+                font-size: 1.7rem;
+            }
+
+            h2 {
+                position: absolute;
+                color: red;
+                right: 28%;
+                font-size: 2.8rem;
+                top: 18%;
+                cursor: pointer;
+
+                &:hover {
+                    color: rgb(109, 30, 30);
+                }
+            }
+        }
+
+        .rest {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin-top: 20px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                margin-top: 25px;
+
+                .sports {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    width: 100%;
+                    padding: 15px;
+                    overflow-x: hidden;
+
+                    .element {
+                        width: 90%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        border: 1px solid black;
+                        margin-bottom: 30px;
+                        font-weight: bold;
+                        border-radius: 5px;
+
+                        &.selected {
+                            background-color: rgb(148, 129, 129);
+
+                            &:hover {
+                                background-color: rgb(148, 129, 129);
+                            }
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                            background-color: #b5b0b0;
+                        }
+                    }
+                }
+
+                input {
+                    font-size: 20px;
+                    padding: 17px;
+                    font-family: 'k2d';
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid rgba(0, 0, 0, 1);
+                    border-radius: 30px;
+                    margin-bottom: 30px;
+                }
+
+                button {
+                    display: flex;
+                    align-self: center;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px;
+                    color: white;
+                    font-family: 'k2d';
+                    letter-spacing: 3px;
+                    border: none;
+                    cursor: pointer;
+                    background-color: green;
+                    font-size: 18px;
+                    width: 50%;
+
+                    &:hover {
+                        background-color: rgb(9, 60, 9);
+                    }
+                }
+            }
+
+            .errorMessage {
+                position: absolute;
+                color: red;
+                top: 72%;
+                z-index: 1;
+                font-weight: bold;
+                letter-spacing: 5px;
+            }
+
+            .succesMessage {
+                position: absolute;
+                color: green;
+                top: 72%;
+                z-index: 1;
+                font-weight: bold;
+                letter-spacing: 5px;
+            }
+        }
+    }
+}
+
+.addSportMenu {
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.83);
+    width: 100%;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+
+    .menu {
+        display: flex;
+        flex-direction: column;
+        font-family: 'k2d';
+        letter-spacing: 3px;
+        width: 45%;
+        height: 60vh;
+        background-color: rgb(255, 254, 254);
+        padding: 10px;
+        border-radius: 15px;
+
+        .up {
+            width: 100%;
+            height: 15%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            border-bottom: 1px solid black;
+
+            h1 {
+                letter-spacing: 5px;
+                font-size: 1.7rem;
+            }
+
+            h2 {
+                position: absolute;
+                color: red;
+                right: 28%;
+                font-size: 2.8rem;
+                top: 18%;
+                cursor: pointer;
+
+                &:hover {
+                    color: rgb(109, 30, 30);
+                }
+            }
+        }
+
+        .rest {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+            margin-top: 20px;
+
+            form {
+                display: flex;
+                flex-direction: column;
+                width: 90%;
+                margin-top: 25px;
+
+                .sports {
+                    display: grid;
+                    grid-template-columns: repeat(4, 1fr);
+                    width: 100%;
+                    padding: 15px;
+                    overflow-x: hidden;
+
+                    .element {
+                        width: 90%;
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        padding: 10px;
+                        border: 1px solid black;
+                        margin-bottom: 30px;
+                        font-weight: bold;
+                        border-radius: 5px;
+
+                        &.selected {
+                            background-color: rgb(148, 129, 129);
+
+                            &:hover {
+                                background-color: rgb(148, 129, 129);
+                            }
+                        }
+
+                        &:hover {
+                            cursor: pointer;
+                            background-color: #b5b0b0;
+                        }
+                    }
+                }
+
+                input {
+                    font-size: 20px;
+                    padding: 17px;
+                    font-family: 'k2d';
+                    width: 100%;
+                    border: none;
+                    border-bottom: 1px solid rgba(0, 0, 0, 1);
+                    border-radius: 30px;
+                    margin-bottom: 30px;
+                }
+
+                button {
+                    display: flex;
+                    align-self: center;
+                    justify-content: center;
+                    align-items: center;
+                    padding: 15px;
+                    color: white;
+                    font-family: 'k2d';
+                    letter-spacing: 3px;
+                    border: none;
+                    cursor: pointer;
+                    background-color: green;
+                    font-size: 18px;
+                    width: 50%;
+
+                    &:hover {
+                        background-color: rgb(9, 60, 9);
+                    }
+                }
+            }
+
+            .errorMessage {
+                position: absolute;
+                color: red;
+                top: 72%;
+                z-index: 1;
+                font-weight: bold;
+                letter-spacing: 5px;
+            }
+
+            .succesMessage {
+                position: absolute;
+                color: green;
+                top: 72%;
+                z-index: 1;
+                font-weight: bold;
+                letter-spacing: 5px;
+            }
+        }
+    }
+}

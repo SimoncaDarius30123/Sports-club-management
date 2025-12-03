@@ -1,0 +1,21 @@
+<app-background />
+<div class="container">
+    <div class="loginContainer">
+        <h1>Login</h1>
+        <form class="loginForm" #f="ngForm" (ngSubmit)="login()" novalidate>
+            <div class="inputContainer">
+                <fa-icon [icon]="faUser" />
+                <input type="email" name="email" [(ngModel)]="email" placeholder="Email" required autocomplete="email">
+            </div>
+            <div class="inputContainer">
+                <fa-icon [icon]="faLocker" />
+                <input [type]="showPassword ? 'text' : 'password' " name="password" [(ngModel)]="password"
+                    placeholder="Password" required>
+                <fa-icon class="showPass" (click)="togglePasswordVisibility()" [icon]="faEye" />
+            </div>
+            <button type="submit" [disabled]="f.invalid">Login</button>
+        </form>
+        <p class="errorMessage">{{errorMessage}}</p>
+        <a routerLink="/register"><p>You don't have an account ? Sign up!</p></a>
+    </div>
+</div>
