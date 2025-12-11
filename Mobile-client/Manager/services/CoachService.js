@@ -1,4 +1,4 @@
-const API_URL = `http://192.168.1.128:8080/api/coach/get-coaches-by-sport-id?sportId`;
+const API_URL = `http://172.20.10.6:8080/api/coach/get-coaches-by-sport-id?sportId`;
 
 export const getCoachesBySportId = async (sportId) =>{
     try{
